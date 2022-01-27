@@ -9,6 +9,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-flow: column wrap;
     gap: 5vw;
 }
 
@@ -53,7 +54,7 @@ body {
         rotateZ(45deg)
         rotateY(0deg);
 
-    // &:hover { animation: rotateAnimation infinite 15s; }
+    &:hover { animation: rotateAnimation infinite 15s; }
 
     * {
         outline: 2px solid black;
@@ -131,6 +132,128 @@ body {
             rotateX(-90deg)
             rotateY(90deg)
             translateX(($length-box * 0.3) - 1);
+
+    }
+}
+
+.book {
+    $width-box: 25vw;
+    $length-box: 20vw;
+    $height-box: 12vw;
+    $residue-height: 0vw;
+
+    transform-style: preserve-3d;
+    transform: 
+        rotateX(65deg)
+        rotateY(0deg)
+        rotateZ(45deg);
+
+    &:hover {
+        animation: rotateAnimation infinite 15s;
+    }
+
+    .book__cover {
+        width: $width-box;
+        height: $length-box;
+
+        border-radius: 0.5rem;
+        outline: 5px solid rgb(89, 0, 128);
+
+        background-color: blueviolet;
+    }
+
+    .book__cover--bottom {
+        // middle of cover
+        transform: 
+            translateY($length-box * 0.5);
+    }
+    
+    .book__cover--top {
+        // middle of cover
+        transform: 
+            translateY(-1 * ($length-box * 0.5))
+            translateZ($height-box);
+        
+        display: flex; 
+        flex-flow: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        .book-title-wrapper {
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+
+            background-color: rgb(89, 0, 128);
+
+            transform: rotate(-90deg);
+
+            .book__title {
+                color: white;
+                font: 500 1.5rem/120% "Roboto", sans-serif;
+                text-align: center;
+                text-transform: capitalize;
+            }
+
+            .book__autor {
+                color: white;
+                font: 200 0.75rem/110% "Roboto Mono", sans-serif;
+                text-align: center;
+            }
+        }
+    }
+
+    .book__side {
+        width: $width-box;
+        height: $height-box;
+
+        transform-origin: bottom left;
+    }
+
+    .book__side--left {
+        border-radius: 0.5rem;
+        outline: 5px solid rgb(89, 0, 128);
+
+        background-color: blueviolet;
+        
+        transform: 
+            rotateX(-90deg)
+            translateZ(-1 * ($length_box + 2vw));
+    }
+    
+    .book__side--right {
+        border-radius: 0.25rem;
+    
+        background-color: lightgoldenrodyellow;
+        
+        transform: 
+            rotateX(-90deg)
+            translateZ(-1 * (($length-box * 2.6) + 2vw));
+    }
+
+    .book__face {
+        width: $length-box;
+        height: $height-box;
+
+        border-radius: 0.25rem;
+
+        background-color: lightgoldenrodyellow;
+
+        transform-origin: bottom left;
+    }
+
+    .book__face--front {
+        transform: 
+            rotateX(-90deg)
+            rotateY(90deg)
+            translateX((($length-box * 2) + 6vw))
+            translateZ($width-box);
+    }
+    
+    .book__face--back {
+        transform: 
+            rotateX(-90deg)
+            rotateY(90deg)
+            translateX((($length-box * 2.75) + 3.2vw));
 
     }
 }

@@ -10,6 +10,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-flow: column wrap;
   gap: 5vw;
 }
 
@@ -35,6 +36,9 @@ body {
   height: 30vw;
   transform-style: preserve-3d;
   transform: rotateX(65deg) rotateZ(45deg) rotateY(0deg);
+}
+.box:hover {
+  animation: rotateAnimation infinite 15s;
 }
 .box * {
   outline: 2px solid black;
@@ -73,4 +77,75 @@ body {
 }
 .box .box__face--back {
   transform: rotateX(-90deg) rotateY(90deg) translateX(8vw);
+}
+
+.book {
+  transform-style: preserve-3d;
+  transform: rotateX(65deg) rotateY(0deg) rotateZ(45deg);
+}
+.book:hover {
+  animation: rotateAnimation infinite 15s;
+}
+.book .book__cover {
+  width: 25vw;
+  height: 20vw;
+  border-radius: 0.5rem;
+  outline: 5px solid #590080;
+  background-color: blueviolet;
+}
+.book .book__cover--bottom {
+  transform: translateY(10vw);
+}
+.book .book__cover--top {
+  transform: translateY(-10vw) translateZ(12vw);
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.book .book__cover--top .book-title-wrapper {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #590080;
+  transform: rotate(-90deg);
+}
+.book .book__cover--top .book-title-wrapper .book__title {
+  color: white;
+  font: 500 1.5rem/120% "Roboto", sans-serif;
+  text-align: center;
+  text-transform: capitalize;
+}
+.book .book__cover--top .book-title-wrapper .book__autor {
+  color: white;
+  font: 200 0.75rem/110% "Roboto Mono", sans-serif;
+  text-align: center;
+}
+.book .book__side {
+  width: 25vw;
+  height: 12vw;
+  transform-origin: bottom left;
+}
+.book .book__side--left {
+  border-radius: 0.5rem;
+  outline: 5px solid #590080;
+  background-color: blueviolet;
+  transform: rotateX(-90deg) translateZ(-22vw);
+}
+.book .book__side--right {
+  border-radius: 0.25rem;
+  background-color: lightgoldenrodyellow;
+  transform: rotateX(-90deg) translateZ(-54vw);
+}
+.book .book__face {
+  width: 20vw;
+  height: 12vw;
+  border-radius: 0.25rem;
+  background-color: lightgoldenrodyellow;
+  transform-origin: bottom left;
+}
+.book .book__face--front {
+  transform: rotateX(-90deg) rotateY(90deg) translateX(46vw) translateZ(25vw);
+}
+.book .book__face--back {
+  transform: rotateX(-90deg) rotateY(90deg) translateX(58.2vw);
 }
